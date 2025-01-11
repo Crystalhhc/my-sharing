@@ -20,16 +20,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install mkdocs-material
 
+      - name: Debug - List repository contents
+        run: ls -R
       - name: Build English docs
         run: |
           cd mydocs-en
-          mkdocs build --site-dir ../site
+          mkdocs build --site-dir ../../site
 
       - name: Build Chinese docs
         run: |
           cd mydocs-zh-TW
-          mkdocs build --site-dir ../site/zh-TW
+          mkdocs build --site-dir ../../site/zh-TW
 
+      - name: Debug - List site contents
+        run: ls -R site/
       - name: Create .nojekyll file
         run: |
           touch site/.nojekyll
@@ -42,7 +46,7 @@ jobs:
           publish_dir: ./site
           force_orphan: true
 
-      - name: Debug - List contents of site directory
+      - name: Debug - Final site contents
         if: always()
         run: |
           ls -R site/
