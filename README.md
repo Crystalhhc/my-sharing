@@ -63,11 +63,13 @@ INFO    -  Writing initial docs: mydocs-zh-TW/docs/index.md
 ## Developing Multiple Projects simultaneously
 1. For your English documentation project:
 ```bash
-mkdocs serve -f /Users/chenhsihu/myDocs/mydocs-en/mkdocs.yml -a localhost:8000
+cd ~/my-shaing
+mkdocs serve -f ./mydocs-en/mkdocs.yml -a localhost:8000
 ```
 2. For your Traditional Chinese documentation project:
 ```bash
-mkdocs serve -f /Users/chenhsihu/myDocs/mydocs-zh-TW/mkdocs.yml -a localhost:8001
+cd ~/my-shaing
+mkdocs serve -f ./mydocs-zh-TW/mkdocs.yml -a localhost:8001
 ```
 By using different port numbers (8000 and 8001 in this example), you can run both projects simultaneously without conflicts.
 
@@ -270,7 +272,7 @@ These changes will ensure that your
 - Root URL (https://crystalhhc.github.io/myDocs/) will redirect to the English version
 
 !!!Note
-If have problems with deployment, please chdeck:
+If have problems with deployment, please check:
 1. Check Repository Permissions:
 Go to your GitHub repository's settings, then to "Actions" under "Code and automation" in the left sidebar. Make sure "Read and write permissions" is selected under "Workflow permissions".
 2. Verify GitHub Pages Settings:

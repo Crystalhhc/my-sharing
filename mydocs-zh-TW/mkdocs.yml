@@ -1,41 +1,70 @@
 site_name: My Docs - Chinese
 #site_url: https://mydomain.org/zh-TW # instead of 'http://mydomain.org/mydocs'
-site_url: https://crystalhhc.github.io/myDocs/zh-TW/
+site_url: https://crystalhhc.github.io/my-sharing/zh-TW/
 use_directory_urls: false
 theme:
   name: material
-  language: zh-TW
+  language: en
   icon:
     tag:
       html: fontawesome/brands/html5
       js: fontawesome/brands/js
       css:  fontawesome/brands/css3
   features:
-    - navigation.instant
-    - navigation.instant.progress
-    - navigation.instant.preview
-    - navigation.tracking
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.expand
-    - navigation.path
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
     - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
     - navigation.top
-    - toc.follow
-    #- toc.integrate
-    - search.suggest
+    - navigation.tracking
     - search.highlight
     - search.share
-  palette:  
-    - primary: teal
-      # Palette toggle for light mode
-    - scheme: default
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
     # Palette toggle for dark mode
-    - scheme: slate
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  palette:
+     # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -51,24 +80,11 @@ extra:
     # Note: These links are for the deployed site. 
     # For local development, use relative paths (/en/ and /zh-TW/) instead.
     - name: English
-      link: https://crystalhhc.github.io/myDocs/
+      link: https://crystalhhc.github.io/my-sharing/
       lang: en
     - name: 正體中文
-      link: https://crystalhhc.github.io/myDocs/zh-TW/
+      link: https://crystalhhc.github.io/my-sharing/zh-TW/
       lang: zh-TW
-  i18n:
-    zh-TW:
-      nav:
-        首頁: Home
-        Projects: 專案
-        OCR: OCR
-        文件智能: Document AI
-        概括: Overview
-        介紹: Introduction
-        路線圖: Roadmap
-        特點: Features
-        文章: Blog
-        標籤: Tags    
 
 # Extensions
 markdown_extensions:
