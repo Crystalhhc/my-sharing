@@ -23,12 +23,12 @@ jobs:
       - name: Build English docs
         run: |
           cd mydocs-en
-          mkdocs build --site-dir ../mydocs-en
+          mkdocs build --site-dir ../site
 
       - name: Build Chinese docs
         run: |
           cd mydocs-zh-TW
-          mkdocs build --site-dir ../mydocs-zh-TW
+          mkdocs build --site-dir ../site/zh-TW
 
       - name: Create .nojekyll file
         run: touch site/.nojekyll
