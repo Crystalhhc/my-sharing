@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-22.04  # Explicitly specify Ubuntu 22.04
     steps:
       - uses: actions/checkout@v3
 
@@ -20,11 +20,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install mkdocs-material
 
-      - name: Debug - List repository contents
-        run: ls -R
-
-      - name: Create site directory
-        run: mkdir -p site
       - name: Build English docs
         run: |
           cd mydocs-en
@@ -35,13 +30,8 @@ jobs:
           cd mydocs-zh-TW
           mkdocs build --site-dir ../site/zh-TW
 
-      - name: Debug - List site contents
-        run: ls -R site/
-
       - name: Create .nojekyll file
-        run: |
-          touch site/.nojekyll
-          echo "my-sharing.crystalhhc.com" > site/CNAME
+        run: touch site/.nojekyll
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -49,8 +39,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
           force_orphan: true
-
-      - name: Debug - Final site contents
-        if: always()
-        run: |
-          ls -R site/

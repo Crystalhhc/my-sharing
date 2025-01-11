@@ -1,6 +1,6 @@
 site_name: My Docs - Chinese
 #site_url: https://mydomain.org/zh-TW # instead of 'http://mydomain.org/mydocs'
-site_url: https://crystalhhc.github.io/my-sharing/zh-TW
+site_url: https://crystalhhc.github.io/my-sharing/zh-TW/
 use_directory_urls: false
 theme:
   name: material
