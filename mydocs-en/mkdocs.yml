@@ -1,15 +1,21 @@
 site_name: My Docs - English
 site_url: https://crystalhhc.github.io/my-sharing/
+site_author: Crystal Chen
+site_description: 
 use_directory_urls: false
 
 theme:
   name: material
   language: en
+  custom_dir: material/overrides
   icon:
     tag:
       html: fontawesome/brands/html5
       js: fontawesome/brands/js
       css:  fontawesome/brands/css3
+  font:
+    text: Roboto
+    code: Roboto Mono
   features:
     - announce.dismiss
     - content.action.edit
@@ -70,6 +76,8 @@ extra:
     - name: 正體中文
       link: https://crystalhhc.github.io/my-sharing/zh-TW/
       lang: zh-TW
+extra_css:
+  - stylesheets/extra.css
 
 # Extensions
 markdown_extensions:
@@ -122,17 +130,10 @@ markdown_extensions:
   - pymdownx.tilde
 
 not_in_nav: |
-  /tutorials/**/*.md
 
+## Language Specific 
 # nav
 nav:
   - Home: index.md
-  - Projects:
-    - projects/index.md
-    - OCR: ocr/index.md
-  - OCR: 
-    - Introductions: ocr/introduction.md
-    - Roadmap: ocr/roadmap.md
-    - Features: ocr/features.md
   - Blog: blog/index.md
-  - Tags: tags.md
+  #- Tags: tags.md

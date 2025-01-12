@@ -4,13 +4,15 @@ title: 使用 Mkdocs Material 主題建立多語言網站
 author: Crystal Chen  
 draft: false
 slug: build-multi-language-website-mkdocs-material.zh-TW
-description: 學習如何使用 MkDocs 和 Material 主題設置和管理多語言文檔網站。本指南涵蓋了專案結構、安裝以及英文和正體中文版本的同步開發。
+description: 學習如何使用 MkDocs 和 Material 主題設置和管理多語言文檔網站。本指南涵蓋了專案結構、安裝以及英文和正體（繁體）（繁體）中文版本的同步開發。
 category:
   - 文檔
 tags:
   - mkdocs
   - 多語言
   - material
+  - 網站
+comments: true  
 ---
 
 # 使用 Mkdocs Material 主題建立多語言網站
@@ -26,8 +28,8 @@ tags:
         <p style="font-size: 0.8em; color: #666;"></p>
     </div>
     <div style="flex: 1; margin-left: 10px;">
-        <img src="../../../../assets/mydocs-zh-TW.png" alt="正體中文" style="width: 100%; height: auto;" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Chinese+Image+Not+Found'; this.alt='Chinese image not found';">
-        <p style="text-align: center;"><em>正體中文</em></p>
+        <img src="../../../../assets/mydocs-zh-TW.png" alt="正體（繁體）中文" style="width: 100%; height: auto;" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Chinese+Image+Not+Found'; this.alt='Chinese image not found';">
+        <p style="text-align: center;"><em>正體（繁體）中文</em></p>
         <p style="font-size: 0.8em; color: #666;"></p>
     </div>
 </div>
@@ -53,7 +55,7 @@ tags:
 雖然對於某些專案來說，使用 `i18n` 插件可能更合適，特別是那些結構較簡單或需要嚴格保持語言版本一致性的專案，但我們的方法為複雜、不斷發展的文檔需求提供了更多的靈活性和穩健性。
 
 ## 專案佈局
-我們的目標是創建一個同時包含`英文`和`正體中文`版本的文檔網站。以下是我們將使用的基本專案結構：
+我們的目標是創建一個同時包含`英文`和`正體（繁體）中文`版本的文檔網站。以下是我們將使用的基本專案結構：
 
 ```
 myDocs/
@@ -63,20 +65,20 @@ myDocs/
 │   │   ├── index.md       # 文檔首頁（英文）
 │   │   └── ...            # 其他 markdown 頁面和文件
 │   └── mkdocs.yml         # 英文文檔的配置文件
-├── mydocs-zh-TW/          # 正體中文文檔專案
+├── mydocs-zh-TW/          # 正體（繁體）中文文檔專案
 │   ├── docs/
-│   │   ├── index.md       # 文檔首頁（正體中文）
+│   │   ├── index.md       # 文檔首頁（正體（繁體）中文）
 │   │   └── ...            # 其他 markdown 頁面和文件
-│   └── mkdocs.yml         # 正體中文文檔的配置文件
+│   └── mkdocs.yml         # 正體（繁體）中文文檔的配置文件
 └── README.md              # 專案概述和說明
 ```
 
 
-## 快速開始：克隆示例倉庫
+## 快速開始：克隆（複製）範例儲存庫
 
-如果您想快速開始並使用一個可工作的示例，您可以直接從 GitHub 克隆我的示例倉庫。這個倉庫包含一個完全設置好的多語言 MkDocs 專案，包括英文和正體中文版本。
+如果您想快速開始並使用一個可工作的範例，您可以直接從 GitHub 克隆（複製）我的範例儲存庫。這個儲存庫包含一個完全設置好的多語言 MkDocs 專案，包括英文和正體（繁體）中文版本。
 
-要克隆倉庫：
+要克隆儲存庫：
 
 1. 打開您的終端。
 2. 導航到您想克隆專案的目錄。
@@ -84,11 +86,11 @@ myDocs/
 ```bash
 git clone https://github.com/Crystalhhc/myDocs.git
 ```
-4. 克隆完成後，進入專案目錄：
+4. 克隆完成後，進入專案目錄(/myDocs)：
 ```bash
 cd myDocs
 ```
-5. 設置虛擬環境並安裝所需的依賴：
+5. 設置虛擬環境並安裝所需的依賴(Dependencies)：
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
@@ -102,20 +104,22 @@ pip install -r requirements.txt
     cd mydocs-en
     mkdocs serve -a localhost:8000 
     ```    
-=== "正體中文版本"
+=== "正體（繁體）中文版本"
     ```bash
     cd mydocs-zh-TW
     mkdocs serve -a localhost:8001
     ```
 !!! information
-    `-a localhost:8000`：這是一個選項，指定服務器應該在哪個地址和端口上運行。
+    `-a localhost:8000`：
+
+      - `a` 是一個選項，指定服務器應該在哪個地址和端口上運行。
 
 在您的網絡瀏覽器中訪問以下 URL 以查看文檔：
 
 - 英文：http://localhost:8000
-- 正體中文：http://localhost:8001
+- 正體（繁體）中文：http://localhost:8001
 
-這個示例倉庫為您自己的多語言文檔專案提供了一個很好的起點。您現在可以在本地開發環境中輕鬆切換語言。請隨意修改和擴展它以滿足您的需求。
+這個範例儲存庫為您自己的多語言文檔專案提供了一個很好的起點。您現在可以在本地開發環境中輕鬆切換語言。請隨意修改和擴展它以滿足您的需求。
 
 在接下來的部分中，我們將介紹從頭開始設置這樣一個專案的過程，這將讓您更深入地了解一切是如何運作的。
 
@@ -137,7 +141,7 @@ pip install mkdocs-material
 ## 創建特定語言的專案
 === "英文"
     bash title="~/myDocs/"     mkdocs new mydocs-en     
-=== "正體中文"
+=== "正體（繁體）中文"
     bash title="~/myDocs/"     mkdocs new mydocs-zh-TW  
 
 ## 同時開發多語言版本
@@ -152,7 +156,7 @@ pip install mkdocs-material
     sources .venv/bin/activate # 確保您當前處於虛擬環境中
     mkdocs serve -a localhost:8000  
     ```   
-=== "終端 2 - 正體中文"
+=== "終端 2 - 正體（繁體）中文"
     ```bash title="~/myDocs"
     cd mydocs-zh-TW
     sources .venv/bin/activate
@@ -162,10 +166,10 @@ pip install mkdocs-material
 這種設置允許您實時查看和編輯兩種語言版本，確保多語言文檔的一致性。您可以在網絡瀏覽器中訪問：
 
 - 英文：http://localhost:8000
-- 正體中文：http://localhost:8001
+- 正體（繁體）中文：http://localhost:8001
 
 ## 為每種語言配置 `mkdocs.yml`
-對於每個語言版本，您需要單獨配置 mkdocs.yml 文件。以下是英文和正體中文的示例：
+對於每個語言版本，您需要單獨配置 mkdocs.yml 文件。以下是英文和正體（繁體）中文的範例：
 === "English"
 
     ```yml title="./mydocs-en/mkdocs.yml" 
@@ -180,7 +184,7 @@ pip install mkdocs-material
         - name: English
           link: https://crystalhhc.github.io/myDocs/ # English as    default
           lang: en
-        - name: 正體中文
+        - name: 正體（繁體）中文
           link: https://crystalhhc.github.io/myDocs/zh-TW/
           lang: zh-TW
     ``` 
@@ -198,7 +202,7 @@ pip install mkdocs-material
         - name: English
           link: https://crystalhhc.github.io/myDocs/ # English as default language
           lang: en
-        - name: 正體中文
+        - name: 正體（繁體）中文
           link: https://crystalhhc.github.io/myDocs/zh-TW/
           lang: zh-TW
     ``` 
@@ -312,7 +316,7 @@ cd ~/myDocs
 source .venv/bin/activate # make sure you are keeping in the virtual environment
 git init
 ```
-2. 創建 `.gitignore` 文件，並填入過濾條件，設定避免無需要的文檔上傳到`github`：
+2. 創建 `.gitignore` 文件，並填入過濾條件，避免無需要的文檔上傳到`github`：
 ```bash
 touch .gitignore
 ```
@@ -321,8 +325,8 @@ touch .gitignore
 git add .
 git commit -m "Initial commit"
 ```
-4. 在 GitHub 上創建一個新的倉庫（我們姑且稱它為 `myDocs`）
-5. 將您的本地倉庫連接到 GitHub 並推送：
+4. 在 GitHub 上創建一個新的儲存庫（我們姑且稱它為 `myDocs`）
+5. 將您的本地儲存庫連接到 GitHub 並推送：
 ```bash
 git branch -M main
 git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
@@ -331,7 +335,7 @@ git push -u origin main
 ## 部署到 GitHub Pages
 下列步驟要將您的文檔部署到 [GitHub Pages](https://pages.github.com/)：
 
-1. 確保您的 `mkdocs.yml` 文件已按照上面的配置示例正確設置了 `site_url`。
+1. 確保您的 `mkdocs.yml` 文件已按照上面的配置範例正確設置了 `site_url`。
 2. 創建一個 `gh-pages` 分支：
 ```bash
 git checkout --orphan gh-pages
@@ -351,21 +355,31 @@ mkdocs gh-deploy --force
 cd ~/myDocs/mydocs-zh-TW
 mkdocs gh-deploy --force
 ```
-5. 在您的 GitHub 倉庫設置中，進入 "Pages" 部分，並將源設置為 `gh-pages` 分支。
+5. 在您的 GitHub 儲存庫設定中，前往 "Pages" 部分，並將來源設置為 gh-pages 分支。這是一個經常被忽略的`重要`步驟。
+    1. 前往您的 GitHub 儲存庫。
+    2. 點擊頂部選單中的 `Settings`（設定）。
+    3. 在左側側邊欄中，點擊 `Pages`（頁面）。
+    4. 在 `Source`（來源）下，選擇 `Deploy from a branch`（從分支部署）。
+    5. 在 `Branch`（分支）下拉選單中，選擇 `gh-pages`。
+    6. 確保資料夾設置為 `/ (root)`（根目錄）。
+    7. 點擊 `Save`（儲存）。
+
+![GitHub Pages Settings](./build-multi-language-website-mkdocs-material/screenshot-github-pages-setting-1.png)
 
 !!! Note 
 
-    檢查倉庫權限：
+    檢查儲存庫權限：
 
-    - 進入您的 GitHub 倉庫設置，然後在左側欄中的 `Code and automation` 下找到 `Actions`。
+    - 進入您的 GitHub 儲存庫設置，然後在左側欄中的 `Code and automation` 下找到 `Actions`。
     - 確保在 `Workflow permissions` 下選擇了 `Read and write permissions`。
 
+![Repository Permissions](./build-multi-language-website-mkdocs-material/screenshot-github-pages-setting-2.png)
 
 ## 定義 GitHub Actions 工作流程
 
 為了消除每次更新文檔時手動干預的需求，讓我們通過創建一個 `GitHub Actions` 工作流程來設計一個自動化部署流程：
 
-1. 在您的倉庫中創建一個 `.github/workflows` 目錄：
+1. 在您的儲存庫中創建一個 `.github/workflows` 目錄：
 ```bash
 mkdir -p .github/workflows
 ```
@@ -437,7 +451,7 @@ jobs:
 
 4. 步驟描述：`steps`：此部分列出了將在作業中執行的步驟。
 
-    步驟 1 - `uses: actions/checkout@v3`：此步驟檢出您的倉庫，以便工作流程可以訪問它。
+    步驟 1 - `uses: actions/checkout@v3`：此步驟檢出您的儲存庫，以便工作流程可以訪問它。
 
     步驟 2 - `name: Set up Python`: 設置 Python 環境
 
@@ -482,5 +496,6 @@ git push -u origin main
 - 中文版本：https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/zh-TW/
 - 預設根 URL（https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/）將重定向到英文版本
 
-## 結論
+## 後續研究
+- 未來可以加入大語言模型，設法讓各語系之間的翻譯工作更自動
 

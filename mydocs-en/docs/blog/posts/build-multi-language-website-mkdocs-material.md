@@ -1,16 +1,20 @@
 ---
 date: 2025-01-11
 title: Build a Multi-language Website with Mkdocs Material Theme
-author: Crystal Chen  
+author: [crystalhhc]
 draft: false
 slug: build-multi-language-website-mkdocs-material
 description: Learn how to set up and manage a multi-language documentation website using MkDocs with the Material theme. This guide covers project structure, installation, and simultaneous development of English and Traditional Chinese versions.
+
 category:
   - Documentation
 tags:
   - mkdocs
   - multi-language
-  - material-theme
+  - material
+  - website
+comments: true
+
 ---
 
 # Build a Multi-language Website with Mkdocs Material Theme
@@ -26,14 +30,17 @@ In this post, I'll share my experience of building a multi-language documentatio
         <p style="font-size: 0.8em; color: #666;"></p>
     </div>
     <div style="flex: 1; margin-left: 10px;">
-        <img src="../../../../assets/mydocs-zh-TW.png" alt="正體中文" style="width: 100%; height: auto;" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Chinese+Image+Not+Found'; this.alt='Chinese image not found';">
-        <p style="text-align: center;"><em>正體中文</em></p>
+        <img src="../../../../assets/mydocs-zh-TW.png" alt="正體（繁體）中文" style="width: 100%; height: auto;" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Chinese+Image+Not+Found'; this.alt='Chinese image not found';">
+        <p style="text-align: center;"><em>正體（繁體）中文</em></p>
         <p style="font-size: 0.8em; color: #666;"></p>
     </div>
 </div>
 
+
+
 ## Demo Site
 You can see a live demo of this multi-language documentation setup at: [https://crystalhhc.github.io/myDocs/](https://crystalhhc.github.io/myDocs)
+
 
 Feel free to explore the demo to get a better understanding of how the final product looks and functions.
 
@@ -363,8 +370,17 @@ mkdocs gh-deploy --force
 cd ~/myDocs/mydocs-zh-TW
 mkdocs gh-deploy --force
 ```
-5. In your GitHub repository settings, go to the "Pages" section and set the source to the gh-pages branch.
+5. In your GitHub repository settings, go to the "Pages" section and set the source to the `gh-pages` branch. This is an `important` step that is often overlooked.
 
+    1. Go to your GitHub repository.
+    2. Click on `Settings` in the top menu.
+    3. In the left sidebar, click on `Pages`.
+    4. Under `Source`, select `Deploy from a branch`.
+    5. In the `Branch` dropdown, select `gh-pages`.
+    6. Make sure the folder is set to `/ (root)`.
+    7. Click `Save`.
+
+![GitHub Pages Settings](./build-multi-language-website-mkdocs-material/screenshot-github-pages-setting-1.png)
 !!! Note 
 
     Check Repository Permissions:
@@ -372,6 +388,7 @@ mkdocs gh-deploy --force
     - Go to your GitHub repository's settings, then to `Actions` under `Code and automation` in the left sidebar. 
     - Make sure `Read and write permissions` is selected under `Workflow permissions`.
 
+![Repository Permissions](./build-multi-language-website-mkdocs-material/screenshot-github-pages-setting-2.png)
 
 ## Defining GitHub Actions Workflow
 
@@ -434,6 +451,11 @@ Let's explain the details of the above configuration:
 
 1. Title of this workflow
     - `name`: **Deploy MkDocs** - This is the name of the workflow.
+
+1.  Note that this must be an absolute link. If it includes a domain part, it's
+    used as defined. Otherwise the domain part of the [`site_url`][site_url] as
+    set in `mkdocs.yml` is prepended to the link.
+
 2. Event Trigger:
     - `on`: This section defines when the workflow should run.
     - `push`: The workflow will trigger on push events.
@@ -488,5 +510,6 @@ After setting up the workflow, your documentation will be available at:
 - Chinese version: https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/zh-TW/
 - Root URL (https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/) will redirect to the English version
 
-## Conclusion
+## Further Studies
 
+- In the future, large language models(LLM) could be incorporated to automate the translation work between different language versions.

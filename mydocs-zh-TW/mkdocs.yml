@@ -1,15 +1,31 @@
+# Language Specific 
+# ---
+
 site_name: My Docs - Chinese
 #site_url: https://mydomain.org/zh-TW # instead of 'http://mydomain.org/mydocs'
 site_url: https://crystalhhc.github.io/my-sharing/zh-TW/
+site_author: Crystal Chen
+site_description: 
 use_directory_urls: false
+
+# ---
+
+# Repository
+repo_name: Crystalhhc/my-sharing
+repo_url: https://github.com/Crystalhhc/my-sharing
+
 theme:
   name: material
-  language: en
+  language: en # Language Specific 
+  custom_dir: material/overrides
   icon:
     tag:
       html: fontawesome/brands/html5
       js: fontawesome/brands/js
       css:  fontawesome/brands/css3
+  font:
+    text: Roboto
+    code: Roboto Mono
   features:
     - announce.dismiss
     - content.action.edit
@@ -139,24 +155,13 @@ markdown_extensions:
 not_in_nav: |
   /tutorials/**/*.md
 
+# Language Specific
+# ---
 nav:
   - 首頁: 
       index.md
-  - 計劃:
-      - 計劃概覽: 
-          projects/index.md
-      - OCR: 
-          ocr/index.md
-  - OCR: 
-      - 概括: 
-          ocr/index.md
-      - 介紹: 
-          ocr/introduction.md
-      - 路線圖: 
-          ocr/roadmap.md
-      - 特點: 
-          ocr/features.md
   - 文章:  # can not affect
       blog/index.md 
   - 標籤: 
-      tags.md 
+      #tags.md 
+# ---
