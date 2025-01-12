@@ -135,5 +135,6 @@ not_in_nav: |
 # nav
 nav:
   - Home: index.md
+  - About Me: about-me.md
   - Blog: blog/index.md
   #- Tags: tags.md
